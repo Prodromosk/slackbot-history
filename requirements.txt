@@ -11,7 +11,7 @@ idna-ssl==1.1.0
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-numpy==1.18.5
+
 
 pkg-resources==0.0.0
 python-dateutil==2.8.1
