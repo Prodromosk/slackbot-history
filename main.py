@@ -68,27 +68,27 @@ def home():
                         latest='now')
                     replies.append(convo_replies['messages'])
 
-            # write the result to a file
-            name_ts = datetime.datetime.now().strftime("%d-%m-%Y")
-            filename = "download/extracts/" + CHANNEL + " " + name_ts + ".json"
-
-            os.makedirs(os.path.dirname(filename), exist_ok=True)
-
-            with open(filename, 'w', encoding='utf-8') as f:
-              json.dump(
-                  replies,
-                  f,
-                  sort_keys=True,
-                  indent=4,
-                  ensure_ascii=False
-                )
-
-            # Convert extract to csv
-
-            df = pd.read_json (filename)
-            # print(df)
-            csv_filename = filename.strip('.json')
-            df.to_csv (csv_filename + ".csv", index = None)
+            # # write the result to a file
+            # name_ts = datetime.datetime.now().strftime("%d-%m-%Y")
+            # filename = "download/extracts/" + CHANNEL + " " + name_ts + ".json"
+            #
+            # os.makedirs(os.path.dirname(filename), exist_ok=True)
+            #
+            # with open(filename, 'w', encoding='utf-8') as f:
+            #   json.dump(
+            #       replies,
+            #       f,
+            #       sort_keys=True,
+            #       indent=4,
+            #       ensure_ascii=False
+            #     )
+            #
+            # # Convert extract to csv
+            #
+            # df = pd.read_json (filename)
+            # # print(df)
+            # csv_filename = filename.strip('.json')
+            # df.to_csv (csv_filename + ".csv", index = None)
 
         except SlackApiError as e:
             assert e.response['ok'] is False
