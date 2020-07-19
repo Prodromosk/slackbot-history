@@ -3,7 +3,7 @@ import json
 import time
 import datetime
 from time import sleep
-import pandas as pd
+# import pandas as pd
 from flask import Flask, render_template, request, flash, redirect, url_for, Markup
 from slack import WebClient
 from slack.errors import SlackApiError
