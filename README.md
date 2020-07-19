@@ -24,3 +24,6 @@
 - pip install -r requirements.txt
 - *Export SLACK_API_TOKEN="Bot User OAuth Access Token"*
 - python main.py
+
+_A simple slackbot made with python flask to populate conversations.history. Soon i will add full message history.
+Unfortunately, I haven't added a correct API TOKEN but is very easy to build if you follow the readme_
