@@ -1,0 +1,24 @@
+body {
+  margin-top: 70px;
+}
+
+  {
+  box-sizing: border-box;
+}
+
+#searchInput {
+  background-image: url('/static/img/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#dataSet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Channel to extract</label>
+    <input type="text" class="form-control" id="channelInput" name="channel" aria-describedby="idlHelp" placeholder="Example XXXXXXXXX">
+    <small id="idlHelp" class="form-text text-muted">Type the slack channel ID to export messages from.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Populate</button>
+</form>
+<hr>
+{% if total_messages is not none %}
+<div class="alert alert-success" role="alert">
+  {{ total_messages }}
+</div>
+<input type="text" id="searchInput" onkeyup="searchFltr()" placeholder="Search for date.." title="Type in a date">
+{% endif %}
+{% if error == False %}
+<div class="alert alert-danger" role="alert">
+  {{ error_msg }}
+</div>
+{% endif %}
+<div id="dataSet">
+  {% for reply in replies %}
+  {% if reply['thread_ts'] == reply['ts'] %}
+  {% for elem in reply %}
+  <div class="searchFilter card text-white bg-primary">
+    <div class="timeStamp card-header" name="date">{{ elem['thread_ts'] |ctime}}</div>
+    <div class="card-body">
+      <p class="card-text">{{ elem['text'] }}</p>
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+  <hr>
+  {% endfor %}
+</div>
+{% endblock %}
